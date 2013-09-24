@@ -31,3 +31,5 @@
 
 [merge]
     log = true
+[push]
+	default = simple
