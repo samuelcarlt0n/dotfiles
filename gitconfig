@@ -1,0 +1,33 @@
+[user]
+        name = Sam Carlton
+        email = sam.crltn@gmail.com
+
+[alias]
+    ci = commit
+    br = branch
+    st = status -s
+    df = diff --color --color-words --abbrev
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+
+[color]
+    ui = always
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[merge]
+    log = true
