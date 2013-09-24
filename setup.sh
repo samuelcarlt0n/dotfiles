@@ -15,12 +15,12 @@ cd $dir
 echo "...done"
 
 for file in $files; do
-	if [ -f ~/.$file ]; then
-		echo "$(tput setaf 2)Moving existing $file into $backupdir. $(tput sgr0)"
-		mv ~/.$file $backupdir
-	fi
+    if [ -f ~/.$file ]; then
+        echo "$(tput setaf 2)Moving existing $file into $backupdir. $(tput sgr0)"
+        mv ~/.$file $backupdir
+    fi
 
-	echo
+    echo
     echo "$(tput setaf 5)Symlinking $file to the home directory. $(tput sgr0)"
     ln -s $dir/$file ~/.$file
 done
