@@ -23,6 +23,7 @@ alias .....="cd ../../../.."
 
 export WORKON_HOME=~/Envs
 export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH # use the latest git
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH" # postgressapp.com
 
 
 ###############################################################################
