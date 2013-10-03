@@ -2,6 +2,7 @@
 
 
 source ~/.bash-git-prompt/gitprompt.sh
+source `which virtualenvwrapper.sh`
 
 
 ###############################################################################
