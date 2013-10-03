@@ -3,6 +3,8 @@
 
 source ~/.bash-git-prompt/gitprompt.sh
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 
 ###############################################################################
 # Aliases                                                                     #
