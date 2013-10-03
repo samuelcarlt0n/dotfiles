@@ -2,6 +2,7 @@
 
 
 source ~/.bash-git-prompt/gitprompt.sh
+source `which virtualenvwrapper.sh`
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -23,8 +24,9 @@ alias .....="cd ../../../.."
 ###############################################################################
 
 export WORKON_HOME=~/Envs
-export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH              # use the latest git
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH" # postgressapp.com
 
 
 ###############################################################################
