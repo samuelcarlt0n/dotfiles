@@ -55,3 +55,8 @@ function gitexport() {
     mkdir -p "$1"
     git archive master | tar -x -C "$1"
 }
+
+function svnreview() {
+    svn log -v $1 | sed -n  '/'$2'/,/-----$/ p'
+}
+
