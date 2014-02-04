@@ -4,6 +4,7 @@
 
 [alias]
     ci = commit
+    co = checkout
     br = branch
     st = status -s
     df = diff --color --color-words --abbrev
@@ -32,4 +33,7 @@
 [merge]
     log = true
 [push]
-	default = simple
+    default = simple
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
