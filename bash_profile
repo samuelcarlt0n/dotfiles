@@ -4,6 +4,8 @@
 source ~/.bash-git-prompt/gitprompt.sh
 source `which virtualenvwrapper.sh`
 
+export PATH="/usr/local/heroku/bin:$PATH"  ### Added by the Heroku Toolbelt
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
