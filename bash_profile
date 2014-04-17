@@ -6,6 +6,10 @@ source `which virtualenvwrapper.sh`
 
 export PATH="/usr/local/heroku/bin:$PATH"  ### Added by the Heroku Toolbelt
 
+# Node JS Shit
+export N_PREFIX=$HOME/.node
+export PATH=$N_PREFIX/bin:$PATH
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
@@ -21,7 +25,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias yolo="sudo"
+
 alias runserver="./manage.py runserver"
+alias pyc="find . -name \"*.pyc\" -exec rm -rf {} \;"
 
 
 ###############################################################################
