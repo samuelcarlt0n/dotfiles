@@ -21,7 +21,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias g="git"
-
+alias e="ember"
 alias yolo="sudo"
 
 alias runserver="./manage.py runserver"
