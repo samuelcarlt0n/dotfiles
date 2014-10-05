@@ -1,42 +1,40 @@
-#!/usr/bin/env bash
+# Add `~/bin` to the `$PATH`
+export PATH="$HOME/bin:$PATH";
 
+export NVM_DIR=/Users/veronica/.nvm;
+export WORKON_HOME="~/Envs";
 
-source ~/.bash-git-prompt/gitprompt.sh
-source `which virtualenvwrapper.sh`
+export PATH="$PATH:$HOME/.rvm/bin";  # Add RVM to PATH for scripting
+export PATH="$HOME/bin:$PATH";
+export PATH="/usr/local/bin:$PATH";
+export PATH="/usr/local/git/bin:/usr/local/sbin:$PATH";
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH";
 
-export PATH="/usr/local/heroku/bin:$PATH"  ### Added by the Heroku Toolbelt
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm";
+[[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh";
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
+source ~/.bash-git-prompt/gitprompt.sh;
+source `which virtualenvwrapper.sh`;
+source ~/.profile;
+source ~/.nvm/nvm.sh;
 
 ###############################################################################
 # Aliases                                                                     #
 ###############################################################################
 
 # Easier navigation
-alias cd..="cd .."
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias cd..="cd ..";
+alias ..="cd ..";
+alias ...="cd ../..";
+alias ....="cd ../../..";
+alias .....="cd ../../../..";
 
-alias g="git"
-alias e="ember"
-alias yolo="sudo"
+alias g="git";
+alias e="ember";
+alias yolo="sudo";
 
-alias runserver="./manage.py runserver"
-alias pyc="find . -name \"*.pyc\" -exec rm -rf {} \;"
-
-
-###############################################################################
-# Exports                                                                     #
-###############################################################################
-
-export WORKON_HOME=~/Envs
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/git/bin:/usr/local/sbin:$PATH
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-
+alias runserver="./manage.py runserver";
+alias pyc="find . -name \"*.pyc\" -exec rm -rf {} \;";
 
 ###############################################################################
 # Functions                                                                   #
@@ -62,8 +60,3 @@ function gitexport() {
     mkdir -p "$1"
     git archive master | tar -x -C "$1"
 }
-
-function svnreview() {
-    svn log -v $1 | sed -n  '/'$2'/,/-----$/ p'
-}
-
