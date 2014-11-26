@@ -13,7 +13,7 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH";
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm";
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh";
 
-nvm use 0.11
+nvm use 0.10.30
 
 source ~/.bash-git-prompt/gitprompt.sh;
 source `which virtualenvwrapper.sh`;
