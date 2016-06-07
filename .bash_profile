@@ -1,5 +1,3 @@
-set -o vi
-
 # Postgres
 PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 # Redis
