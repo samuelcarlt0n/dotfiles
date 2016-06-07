@@ -41,9 +41,10 @@
     showPatch = true
 
 [alias]
-    # Working locally
-    stat = status --short
-    today = diff @{yesterday}.. --stat
+    # Prelude
+    wtf = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d%C(auto,reset)\\ by\\ %C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)%n\\ %s%n" --stat
+
+    # Diffing
     # useful as something to diff against
     null-sha = hash-object -t tree /dev/null
     diff-staged = diff --cached
@@ -60,18 +61,14 @@
     theirs = "!f() { git checkout --theirs -- $@ && git add -- $@; }; f"
     resolve = mergetool
 
-    # Pushing / Pulling
-    incoming = !git fetch && git wtf HEAD..HEAD@{u}
-    outgoing = !git fetch && git wtf HEAD@{u}..HEAD
-    push-to = "!f() { branchname=`git symbolic-ref -q --short HEAD`; git push \"$1\" \"$branchname\"; }; f"
-    force-push-to = "!f() { branchname=`git symbolic-ref -q --short HEAD`; git push --force-with-lease \"$1\" \"$branchname\"; }; f"
-
     # Branching
     branches = branch --all -vv
     new-branch = checkout -b
     delete-branch-local = branch -d
-    delete-merged-branches = "!f() { git branch --no-color --merged | grep -v '\\*' | grep -v master | grep -v develop | xargs -n 1 git branch -d -D; }; f"
+    delete-local-branch = branch -d
     delete-branch-remote = "!f() { git push --delete \"$2\" \"$1\" ; }; f"
+    delete-remote-branch = "!f() { git push --delete \"$2\" \"$1\" ; }; f"
+    delete-merged-branches = "!f() { git branch --no-color --merged | grep -v '\\*' | grep -v master | grep -v develop | xargs -n 1 git branch -d -D; }; f"
     set-branch-head = branch -f
 
     # Stashing
@@ -85,8 +82,6 @@
     stage-all = add --all
     stage-no-ws = !git diff --ignore-all-space | git apply --cached
     unstage = reset HEAD
-
-    # Amending
     amend = commit --amend
     amend-author = commit --amend -C HEAD --author
 
@@ -95,13 +90,19 @@
     rebase-against = rebase
     rebase-since = rebase -i
 
-    # Logs
+    # Contributing
+    incoming = !git fetch && git wtf HEAD..HEAD@{u}
+    outgoing = !git fetch && git wtf HEAD@{u}..HEAD
+    push-to = "!f() { branchname=`git symbolic-ref -q --short HEAD`; git push \"$1\" \"$branchname\"; }; f"
+    force-push-to = "!f() { branchname=`git symbolic-ref -q --short HEAD`; git push --force-with-lease \"$1\" \"$branchname\"; }; f"
+
+    # Reporting
+    stat = status --short
+    today = diff @{yesterday}.. --stat
     authors = shortlog -sn
     graph = log --graph --decorate --pretty=oneline --abbrev-commit --all
     history = log --graph --decorate --pretty=oneline --abbrev-commit --all --stat
     sup = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
-    # Used with other alias
-    wtf = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d%C(auto,reset)\\ by\\ %C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)%n\\ %s%n" --stat
 
     # Sharing
     server = daemon --base-path=. --export-all --reuseaddr --informative-errors --verbose
