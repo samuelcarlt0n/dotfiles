@@ -41,8 +41,8 @@ alias wx="curl -g wttr.in/$1"
 
 # Take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport() {
-    mkdir -p "$1"
-    git archive master | tar -x -C "$1"
+    mkdir -p "$2"
+    git archive "$1" | tar -x -C "$2"
 }
 
 function setitermprofile() {
