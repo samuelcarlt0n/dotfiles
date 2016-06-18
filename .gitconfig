@@ -8,6 +8,7 @@
 [diff]
     algorithm = patience
     tool = diffmerge
+	compactionHeuristic = true
 
 [difftool "diffmerge"]
     cmd = diffmerge $LOCAL $REMOTE
