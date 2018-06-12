@@ -4,18 +4,20 @@ PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 PATH="/Applications/Redis.app/Contents/Resources/Vendor/redis/bin:$PATH"
 
 # Rust && Cargo
-PATH="/Users/sam/.cargo/bin:$PATH"
-export RUST_SRC_PATH="/Users/sam/Downloads/rustc-1.7.0/src"
+PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="$HOME/Downloads/rustc-1.7.0/src"
 
 # Node && NVM
-export NVM_DIR="/Users/sam/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-nvm use 5.9
+nvm use default --silent
 
 # Python && Virtual Envs
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-export WORKON_HOME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME="$HOME/Envs"
+if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 # Bash Git Prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
